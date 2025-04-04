@@ -3,6 +3,10 @@ import * as go from 'gojs';
 import { ReactDiagram } from 'gojs-react';
 import { generateRandomGraph } from './helpers/generateRandomGraph';
 import './App.css';
+import {AvoidsLinksRouter} from "./gojs-extensions/AvoidsLinksRouter.ts";
+
+// include extension for avoids links in gojs
+const diagramRouter = new AvoidsLinksRouter();
 
 // Diagram initialization
 const initDiagram = (): go.Diagram => {
@@ -13,6 +17,9 @@ const initDiagram = (): go.Diagram => {
             linkKeyProperty: 'key', // unique key on each link data
         })
     });
+
+    diagramRouter.epsilonDistance = 3; //distance to avoid links
+    diagram.routers.push(diagramRouter);
 
     // Node template
     diagram.nodeTemplate = $(
