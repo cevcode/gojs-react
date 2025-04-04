@@ -5,6 +5,8 @@
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
+    "allowJs": true, /* Allow javascript files to be compiled. */
+    "checkJs": true, /* Report errors in .js files. */
     "skipLibCheck": true,
 
     /* Bundler mode */
